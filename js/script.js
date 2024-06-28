@@ -9,7 +9,7 @@ createApp({
             contacts: [
     {
         name: 'Michele',
-        avatar: './img/avatar_1.png',
+        avatar: 'img/cervo.png',
         visible: true,
         messages: [
             {
@@ -31,7 +31,7 @@ createApp({
     },
     {
         name: 'Fabio',
-        avatar: './img/avatar_2.png',
+        avatar: 'img/koala.png',
         visible: true,
         messages: [
             {
@@ -53,7 +53,7 @@ createApp({
     },
     {
         name: 'Samuele',
-        avatar: './img/avatar_3.png',
+        avatar: 'img/gatto.png',
         visible: true,
         messages: [
             {
@@ -75,7 +75,7 @@ createApp({
     },
     {
         name: 'Alessandro B.',
-        avatar: './img/avatar_4.png',
+        avatar: 'img/panda.png',
         visible: true,
         messages: [
             {
@@ -92,7 +92,7 @@ createApp({
     },
     {
         name: 'Alessandro L.',
-        avatar: './img/avatar_5.png',
+        avatar: 'img/scimmia.png',
         visible: true,
         messages: [
             {
@@ -109,7 +109,7 @@ createApp({
     },
     {
         name: 'Claudia',
-        avatar: './img/avatar_6.png',
+        avatar: 'img/volpe.png',
         visible: true,
         messages: [
             {
@@ -131,7 +131,7 @@ createApp({
     },
     {
         name: 'Federico',
-        avatar: './img/avatar_7.png',
+        avatar: 'img/lupo.png',
         visible: true,
         messages: [
             {
@@ -148,7 +148,7 @@ createApp({
     },
     {
         name: 'Davide',
-        avatar: './img/avatar_8.png',
+        avatar: 'img/orso.png',
         visible: true,
         messages: [
             {
@@ -175,9 +175,13 @@ createApp({
 
     methods:{
         moltoUtile(){
-            console.log(this.contacts[this.activeChat].messages[this.activeChat]);
+            console.log(this.activeChat);
         },
 
+        changeActiveChat(indice){
+            console.log("click");
+            this.activeChat = indice;
+        },
        
     }
 

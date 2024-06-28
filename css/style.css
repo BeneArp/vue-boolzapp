@@ -60,7 +60,7 @@ ul{
 
 /* formattazione applicazione */
 .profile-pic{
-    height: 60px;
+    height: 70px;
     vertical-align: middle;
 }
 
@@ -180,7 +180,7 @@ ul{
 .messaggio{
     display: inline-block;
     width: fit-content;
-    padding: 0.6em 2em;
+    padding: 1em 2em;
     border-radius: 15px;
     margin-bottom: 1em;
     padding-right: 4.5em;
