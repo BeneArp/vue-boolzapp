@@ -6,6 +6,10 @@ createApp({
 
             activeChat: 0,
 
+            serchChat: '',
+
+            newMessage: '',
+
             contacts: [
     {
         name: 'Michele',
@@ -175,14 +179,25 @@ createApp({
 
     methods:{
         moltoUtile(){
-            console.log(this.activeChat);
+            console.log(this.contacts[0].messages);
         },
 
         changeActiveChat(indice){
             console.log("click");
             this.activeChat = indice;
         },
-       
+
+        addNevMessage(){
+            this.contacts[this.activeChat].messages.push(
+                {
+                    date: "now",
+                    message: this.newMessage,
+                    status: 'sent'
+                },
+                
+            )
+        }
+        
     }
 
 }).mount("#container")
