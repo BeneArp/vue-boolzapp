@@ -10,13 +10,8 @@ body{
     font-family: "Lato", sans-serif;
 }
 
-img{
-    height: 60px;
-    vertical-align: middle;
-}
-
 i{
-    font-size: 25px;
+    font-size: 20px;
     margin: 0 0.5em;
     color: rgb(177 177 177);
     cursor: pointer;
@@ -24,7 +19,7 @@ i{
 
 ul{
     list-style: none;
-    overflow-y: scroll;
+    overflow-y: auto;
     /* debug */
     max-height: 880px;
 }
@@ -57,13 +52,19 @@ ul{
 
 .col-70{
     width: 70%;
+    position: relative;
     /* debug */
     background-color: lightslategray;
 }
 
 
 /* formattazione applicazione */
-.dettagli-utente{
+.profile-pic{
+    height: 60px;
+    vertical-align: middle;
+}
+
+.opzioni-chat{
     background-color: rgb(234 234 234);
     padding: 0.8em;
     display: flex;
@@ -71,8 +72,7 @@ ul{
     align-items: center;
 }
 
-.dettagli-utente h3{
-
+.opzioni-chat h3{
     display: inline-block;
     vertical-align: middle;
 }
@@ -110,7 +110,7 @@ ul{
     background-color: rgb(250 250 250);
 }
 
-#ricerca input{
+.formattazione-input{
     width: 100%;
     padding: 0.5em 1em;
     border-radius: 5px;
@@ -141,4 +141,65 @@ ul{
     position: absolute;
     right: 10px;
     top: 10px;
+}
+
+
+
+
+/* formattazione colonna chat attiva */
+#chat-attiva{
+    background-color: rgb(229 221 213);
+}
+
+#new-message{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#coversazione{
+    padding: 0.5em 2em;
+    max-height: 880px;
+    overflow-y: auto;
+}
+
+#chat-attiva .opzioni-chat{
+    gap: 30px;
+    padding: 1em;
+}
+
+#chat-attiva .opzioni-chat .input{
+    padding: 1.5em;
+}
+
+/* formattazione messaggi */
+
+.messaggio{
+    display: inline-block;
+    width: fit-content;
+    padding: 0.6em 2em;
+    border-radius: 15px;
+    margin-bottom: 1em;
+    padding-right: 4.5em;
+    position: relative;
+}
+
+.messaggio-utente{
+    text-align: right;
+}
+
+.inviato{
+    background-color: rgb(213 249 186);
+}
+
+.ricevuto{
+    background-color: rgb(255 255 255);
+}
+
+#coversazione .dettagli{
+    font-size: 10px;
+    margin-left: 4em;
+    position: absolute;
+    bottom: 4px;
+    right: 8px;
 }
