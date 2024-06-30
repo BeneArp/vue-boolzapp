@@ -21,8 +21,6 @@ ul{
     list-style: none;
     overflow-y: auto;
     flex-grow: 1;
-    /* debug */
-
 }
 
 #container{

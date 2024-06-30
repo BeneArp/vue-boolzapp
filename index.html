@@ -75,12 +75,12 @@
                         <!-- nome e ultimo messaggio -->
                         <div class="nome-utente">
                             <h3>{{person.name}}</h3>
-                            <span class="dettagli">Ultimo messaggio</span>
+                            <span class="dettagli">{{person.messages[person.messages.length - 1].message}}</span>
                         </div>
                         
                         <!-- orario -->
                         <div class="orario dettagli">
-                            12:00
+                            {{person.messages[person.messages.length - 1].date}}
                         </div>
 
                     </li>

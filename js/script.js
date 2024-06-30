@@ -179,7 +179,7 @@ createApp({
 
     methods:{
         moltoUtile(){
-            console.log(this.contacts[0].messages);
+            console.log(this.contacts[0].messages.length);
         },
 
         changeActiveChat(indice){
