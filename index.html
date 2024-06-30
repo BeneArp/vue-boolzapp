@@ -112,17 +112,10 @@
                 <!-- conversazione -->
                 <div>
 
-                    <div id="coversazione" v-for="(messaggio, index) in contacts[activeChat].messages">
+                    <div class="coversazione" v-for="(messaggio, index) in contacts[activeChat].messages">
 
-                        <div class="messaggio-utente">
-                            <span class="messaggio inviato" v-if="messaggio.status === 'sent'">
-                                {{messaggio.message}}
-                                <span class="dettagli">{{messaggio.date}}</span>
-                            </span>
-                        </div>
-
-                        <div class="risposta">
-                            <span class="messaggio ricevuto" v-if="messaggio.status === 'received'">
+                        <div :class="messaggio.status === 'sent' ? 'messaggio-utente' : 'risposta' ">
+                            <span class="messaggio" :class="messaggio.status === 'sent' ? 'inviato' : 'ricevuto' ">
                                 {{messaggio.message}}
                                 <span class="dettagli">{{messaggio.date}}</span>
                             </span>
