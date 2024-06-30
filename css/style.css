@@ -45,8 +45,6 @@ input{
     margin: 0 auto;
     display: flex;
     height: 85vh;
-    /* debug */
-    border: 2px solid black;
 }
 
 .col-30{
@@ -56,8 +54,6 @@ input{
     display: flex;
     flex-direction: column;
     background-color: white;
-    /* debug */
-    border: 2px solid green;
 }
 
 .col-70{
@@ -67,8 +63,6 @@ input{
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    /* debug */
-    border: 2px solid red;
 }
 
 
