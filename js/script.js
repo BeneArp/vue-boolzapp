@@ -171,7 +171,7 @@ createApp({
                 status: 'received'
             }
         ],
-    }
+    },
 ]
 
         };
@@ -211,7 +211,31 @@ createApp({
 
             this.newMessage = '';
 
+            setTimeout(() => {
+                this.contacts[this.activeChat].messages.push(
+                    {
+                        date: "now",
+                        message: "Ok",
+                        status: 'received'
+                    },
+                );
+              }, 1000);
+
         },
+
+    //     response(){
+    //         setTimeout(() => {
+    //             this.contacts[this.activeChat].messages.push(
+    //                 {
+    //                     date: "now",
+    //                     message: "Ok",
+    //                     status: 'received'
+    //                 },
+    //             );
+    //           }, 1000); 
+        
+    // }
+
         
     }
 

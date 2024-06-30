@@ -21,6 +21,11 @@ ul{
     list-style: none;
     overflow-y: auto;
     flex-grow: 1;
+    cursor: pointer;
+}
+
+input{
+    cursor: pointer;
 }
 
 #container{
@@ -190,6 +195,7 @@ ul{
     margin-bottom: 1em;
     padding-right: 4.5em;
     position: relative;
+    cursor: default;
 }
 
 .messaggio-utente{
