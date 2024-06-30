@@ -110,7 +110,7 @@
                 </div>
 
                 <!-- conversazione -->
-                <div>
+                <div id="finestra-conversazione">
 
                     <div class="coversazione" v-for="(messaggio, index) in contacts[activeChat].messages">
 
@@ -123,12 +123,12 @@
 
                     </div>
 
-                    <div id="new-message" class="opzioni-chat">
-                        <i class="fa-regular fa-face-smile"></i>
-                        <input class="formattazione-input" type="text" v-model="newMessage" @keyup.enter="addNevMessage">
-                        <i class="fa-solid fa-microphone"></i>
-                    </div>
+                </div>
 
+                <div class="opzioni-chat">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input class="formattazione-input" type="text" v-model="newMessage" @keyup.enter="addNevMessage">
+                    <i class="fa-solid fa-microphone"></i>
                 </div>
 
             </div>

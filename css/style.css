@@ -60,6 +60,8 @@ ul{
     height: 100%;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     /* debug */
     border: 2px solid red;
 }
@@ -161,11 +163,6 @@ ul{
     background-color: rgb(229 221 213);
 }
 
-#new-message{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
 
 .coversazione{
     padding: 0.5em 2em;
@@ -213,4 +210,10 @@ ul{
     position: absolute;
     bottom: 4px;
     right: 8px;
+}
+
+
+#finestra-conversazione{
+    overflow-y: auto;
+    flex-grow: 1;
 }
