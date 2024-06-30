@@ -187,6 +187,18 @@ createApp({
             this.activeChat = indice;
         },
 
+
+        addResponse(){
+            this.contacts[this.activeChat].messages.push(
+                {
+                    date: "now",
+                    message: "Ok",
+                    status: 'received'
+                },
+                
+            )
+        },
+
         addNevMessage(){
             this.contacts[this.activeChat].messages.push(
                 {
@@ -195,8 +207,11 @@ createApp({
                     status: 'sent'
                 },
                 
-            )
-        }
+            );
+
+            this.newMessage = '';
+
+        },
         
     }
 

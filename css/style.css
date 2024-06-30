@@ -20,8 +20,9 @@ i{
 ul{
     list-style: none;
     overflow-y: auto;
+    flex-grow: 1;
     /* debug */
-    max-height: 880px;
+
 }
 
 #container{
@@ -46,6 +47,10 @@ ul{
 
 .col-30{
     width: 30%;
+    height: 90vh;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
     /* debug */
     background-color: lightblue;
 }
@@ -53,6 +58,8 @@ ul{
 .col-70{
     width: 70%;
     position: relative;
+    height: 90vh;
+    flex-grow: 1;
     /* debug */
     background-color: lightslategray;
 }
