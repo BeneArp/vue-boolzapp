@@ -184,7 +184,7 @@ createApp({
 
     methods:{
         moltoUtile(){
-            console.log(this.contacts[0].messages.length);
+            console.log(this.serchChat);
         },
 
         changeActiveChat(indice){
@@ -205,29 +205,46 @@ createApp({
         },
 
         addNevMessage(){
-            this.contacts[this.activeChat].messages.push(
-                {
-                    date: "now",
-                    message: this.newMessage,
-                    status: 'sent'
-                },
-                
-            );
+            if(this.newMessage.length >= 1 && this.newMessage !== ' '){
 
-            this.newMessage = '';
-
-            setTimeout(() => {
                 this.contacts[this.activeChat].messages.push(
                     {
                         date: "now",
-                        message: "Ok",
-                        status: 'received'
+                        message: this.newMessage,
+                        status: 'sent'
                     },
+                    
                 );
-              }, 1000);
 
+                this.newMessage = '';
+
+                setTimeout(() => {
+                    this.contacts[this.activeChat].messages.push(
+                        {
+                            date: "now",
+                            message: "Ok",
+                            status: 'received'
+                        },
+                    );
+                  }, 1000);
+    
+            }
         },
-        
-    }
+
+    },
+
+    // formatTime(dateString) {
+    //     const dateTime = DateTime.fromFormat(dateString, 'dd/MM/yyyy HH:mm:ss');
+    //     return dateTime.toFormat('HH:mm:ss');
+    // },
+
+    computed: {
+        filteredContacts() {
+          return this.contacts.filter(contact => 
+            contact.name.toLowerCase().includes(this.serchChat.toLowerCase())
+          );
+        }
+      }
+
 
 }).mount("#container")
