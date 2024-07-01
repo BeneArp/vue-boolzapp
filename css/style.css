@@ -217,3 +217,8 @@ input{
     overflow-y: auto;
     flex-grow: 1;
 }
+
+
+.hidden{
+    display: none;
+}

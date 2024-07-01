@@ -128,7 +128,8 @@
                 <div class="opzioni-chat">
                     <i class="fa-regular fa-face-smile"></i>
                     <input class="formattazione-input" type="text" v-model="newMessage" @keyup.enter="addNevMessage">
-                    <i class="fa-solid fa-microphone"></i>
+                    <i class="fa-solid fa-microphone" :class="newMessage !== '' ? 'hidden' : '' "></i>
+                    <i class="fa-solid fa-paper-plane" :class="newMessage === '' ? 'hidden' : '' " @click="addNevMessage"></i>
                 </div>
 
             </div>
