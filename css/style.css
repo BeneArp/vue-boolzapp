@@ -115,7 +115,6 @@ input{
 /* barra di ricerca chat */
 #ricerca{
     padding: 0.5em;
-    background-color: rgb(250 250 250);
 }
 
 .formattazione-input{
@@ -190,6 +189,7 @@ input{
     padding-right: 4.5em;
     position: relative;
     cursor: default;
+    color: black;
 }
 
 .messaggio-utente{
@@ -221,4 +221,20 @@ input{
 
 .hidden{
     display: none;
+}
+
+
+/* dark mode */
+.light-dark{
+    background-color: hsl(0deg 0% 18.82%);
+    color: white;
+}
+
+.dark{
+    background-color: hsl(0deg 0% 12.94%);
+    color: white;
+}
+
+.active-dark{
+    background-color: hsl(0, 1%, 25%);
 }

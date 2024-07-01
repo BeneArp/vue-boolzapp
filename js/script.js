@@ -17,6 +17,8 @@ createApp({
 
             newMessage: '',
 
+            darkMode: false,
+
             contacts: [
                 {
                     name: 'Michele',
@@ -186,7 +188,7 @@ createApp({
 
     methods:{
         moltoUtile(){
-            console.log(this.serchChat);
+            console.log(this.darkMode);
         },
 
         changeActiveChat(indice){
@@ -231,6 +233,10 @@ createApp({
                   }, 1000);
     
             }
+        },
+
+        setDarkMode(){
+            this.darkMode = true;
         },
 
     },

@@ -21,6 +21,7 @@
 
     <!-- Luxon -->
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.0/build/global/luxon.min.js"></script>
+    
 
 </head>
 <body>
@@ -31,10 +32,10 @@
         <div id="app">
 
             <!-- colonna di sinistra con lista delle chat -->
-            <div id="lista-chat" class="col-30">
+            <div id="lista-chat" class="col-30" :class="darkMode === true ? 'dark' : '' ">
 
                 <!-- dettagli utente app -->
-                <div class="opzioni-chat">
+                <div class="opzioni-chat" :class="darkMode === true ? 'dark' : '' ">
                     <!-- immagine profilo e nome -->
                     <div>
                         <img class="profile-pic" :src="userProfile.avatar" alt="">
@@ -45,6 +46,7 @@
                      <div>
                         <i class="fa-solid fa-circle-notch"></i>
                         <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-circle-half-stroke" @click="setDarkMode"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                      </div>
 
@@ -60,14 +62,14 @@
                 </div>
 
                 <!-- barra ricerca -->
-                <div id="ricerca">
-                    <input class="formattazione-input" type="text" placeholder="&#xF002;    Cerca o inizia una nuova chat" style="font-family:Arial, FontAwesome" v-model="serchChat" @keyup.enter="filteredContacts">
+                <div id="ricerca" :class="darkMode === true ? 'dark' : '' ">
+                    <input class="formattazione-input" type="text" placeholder="&#xF002;    Cerca o inizia una nuova chat" style="font-family:Arial, FontAwesome" v-model="serchChat" @keyup.enter="filteredContacts" :class="darkMode === true ? 'light-dark' : '' ">
                 </div>
 
                 <!-- lista contatti -->
                 <ul>
 
-                    <li class="utente" v-for="(person, index) in filteredContacts" :key="index" @click="changeActiveChat(index)" :class="activeChat === index ? 'active' : '' ">
+                    <li class="utente" v-for="(person, index) in filteredContacts" :key="index" @click="changeActiveChat(index)" :class="activeChat === index ? 'active' : '', darkMode === true ? 'dark' : '', darkMode === true && activeChat === index ? 'active-dark' : '' ">
                         <!-- foto profilo -->
 
                         <img class="profile-pic" :src="person.avatar" alt="">
@@ -92,7 +94,7 @@
             <!-- colonna di destra con chat attiva -->
             <div id="chat-attiva" class="col-70">
 
-                <div class="opzioni-chat">
+                <div class="opzioni-chat" :class="darkMode === true ? 'dark' : '' ">
                     <!-- immagine profilo e nome -->
                     <div>
                         <img class="profile-pic" :src="contacts[activeChat].avatar" alt="">
@@ -110,7 +112,7 @@
                 </div>
 
                 <!-- conversazione -->
-                <div id="finestra-conversazione">
+                <div id="finestra-conversazione" :class="darkMode === true ? 'light-dark' : '' ">
 
                     <div class="coversazione" v-for="(messaggio, index) in contacts[activeChat].messages">
 
@@ -125,9 +127,9 @@
 
                 </div>
 
-                <div class="opzioni-chat">
+                <div class="opzioni-chat" :class="darkMode === true ? 'dark' : '' ">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input class="formattazione-input" type="text" v-model="newMessage" @keyup.enter="addNevMessage">
+                    <input class="formattazione-input" type="text" v-model="newMessage" @keyup.enter="addNevMessage" :class="darkMode === true ? 'light-dark' : '' ">
                     <i class="fa-solid fa-microphone" :class="newMessage !== '' ? 'hidden' : '' "></i>
                     <i class="fa-solid fa-paper-plane" :class="newMessage === '' ? 'hidden' : '' " @click="addNevMessage"></i>
                 </div>
