@@ -1,3 +1,5 @@
+const {DateTime} = luxon;
+
 const {createApp} = Vue;
 
 createApp({
@@ -209,7 +211,7 @@ createApp({
 
                 this.contacts[this.activeChat].messages.push(
                     {
-                        date: "now",
+                        date: DateTime.now().toFormat('HH:mm'),
                         message: this.newMessage,
                         status: 'sent'
                     },
@@ -221,7 +223,7 @@ createApp({
                 setTimeout(() => {
                     this.contacts[this.activeChat].messages.push(
                         {
-                            date: "now",
+                            date: DateTime.now().toFormat('HH:mm'),
                             message: "Ok",
                             status: 'received'
                         },
@@ -232,11 +234,6 @@ createApp({
         },
 
     },
-
-    // formatTime(dateString) {
-    //     const dateTime = DateTime.fromFormat(dateString, 'dd/MM/yyyy HH:mm:ss');
-    //     return dateTime.toFormat('HH:mm:ss');
-    // },
 
     computed: {
         filteredContacts() {
