@@ -17,6 +17,8 @@ createApp({
 
             newMessage: '',
 
+            newMessageNoSpace: '',
+
             darkMode: false,
 
             menuIndex: null,
@@ -203,7 +205,13 @@ createApp({
         },
 
         addNevMessage(){
-            if(this.newMessage.length >= 1 && this.newMessage !== ' '){
+        
+            // rimuovo tutti gli spazi bianchi
+            this.newMessageNoSpace = this.newMessage.replace(/\s/g, "");
+
+
+            // verifico che nel campo ci sia almeno un carattere
+            if(this.newMessageNoSpace.length >= 1){
 
                 this.contacts[this.activeChat].messages.push(
                     {
