@@ -23,6 +23,8 @@ createApp({
 
             hiddenMenu: true,
 
+            responseMessage: '',
+
             contacts: [
                 {
                     name: 'Michele',
@@ -191,25 +193,13 @@ createApp({
     },
 
     methods:{
-        moltoUtile(){
-            console.log(this.hiddenMenu);
-        },
+        // moltoUtile(){
+
+        // },
 
         changeActiveChat(indice){
             console.log("click");
             this.activeChat = indice;
-        },
-
-
-        addResponse(){
-            this.contacts[this.activeChat].messages.push(
-                {
-                    date: "now",
-                    message: "Ok",
-                    status: 'received'
-                },
-                
-            )
         },
 
         addNevMessage(){
@@ -226,11 +216,29 @@ createApp({
 
                 this.newMessage = '';
 
+                // API per risposta random
+                let config = {
+                    method: 'get',
+                    maxBodyLength: Infinity,
+                    url: 'https://api.quotable.io/random?maxLength=60',
+                    headers: { }
+                  };
+                  
+                  axios.request(config)
+                  .then((response) => {
+                    return this.responseMessage =(JSON.stringify(response.data.content));
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                  });
+
+
+                // time out 1 secondo per risposta
                 setTimeout(() => {
                     this.contacts[this.activeChat].messages.push(
                         {
                             date: DateTime.now().toFormat('HH:mm'),
-                            message: "Ok",
+                            message: this.responseMessage,
                             status: 'received'
                         },
                     );
@@ -253,6 +261,7 @@ createApp({
         delateMessage(index){
             this.contacts[this.activeChat].messages.splice(index, 1);
         },
+
     },
 
     computed: {
@@ -261,7 +270,7 @@ createApp({
             contact.name.toLowerCase().includes(this.serchChat.toLowerCase())
           );
         }
-      }
+      },
 
 
 }).mount("#container")

@@ -5,3 +5,11 @@
 .delate ul li:hover{
     background-color: rgb(243, 243, 243);
 }
+
+li:hover{
+    background-color: rgb(231, 231, 231);
+}
+
+i:hover{
+    color: rgb(204, 198, 195);
+}
