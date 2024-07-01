@@ -1,0 +1,7 @@
+.messaggio:hover .fa-chevron-down{
+    display: block;
+}
+
+.delate ul li:hover{
+    background-color: rgb(243, 243, 243);
+}

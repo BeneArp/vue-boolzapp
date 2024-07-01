@@ -19,6 +19,8 @@ createApp({
 
             darkMode: false,
 
+            menuIndex: null,
+
             contacts: [
                 {
                     name: 'Michele',
@@ -236,7 +238,15 @@ createApp({
         },
 
         setDarkMode(){
-            this.darkMode = true;
+            this.darkMode = !this.darkMode;
+        },
+
+        changeMenuIndex(index){
+            this.menuIndex = index;
+        },
+
+        delateMessage(index){
+            this.contacts[this.activeChat].messages.splice(index, 1);
         },
 
     },

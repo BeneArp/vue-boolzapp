@@ -16,6 +16,9 @@
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- effetti hover -->
+    <link rel="stylesheet" href="css/hover.css">
+
     <!-- Vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
@@ -114,12 +117,22 @@
                 <!-- conversazione -->
                 <div id="finestra-conversazione" :class="darkMode === true ? 'light-dark' : '' ">
 
-                    <div class="coversazione" v-for="(messaggio, index) in contacts[activeChat].messages">
+                    <div class="coversazione" v-for="(messaggio, index) in contacts[activeChat].messages" :key="index">
 
                         <div :class="messaggio.status === 'sent' ? 'messaggio-utente' : 'risposta' ">
                             <span class="messaggio" :class="messaggio.status === 'sent' ? 'inviato' : 'ricevuto' ">
                                 {{messaggio.message}}
+                                <i class="fa-solid fa-chevron-down hidden" @click="changeMenuIndex(index)"></i>
                                 <span class="dettagli">{{messaggio.date}}</span>
+                                
+                                <!-- opzione per eliminare il messaggio -->
+                                <div class="delate" v-show="menuIndex === index">
+                                    <ul>
+                                        <li>Info messaggio</li>
+                                        <li @click="delateMessage(index)">Cancella messaggio</li>
+                                    </ul>
+                                </div>
+
                             </span>
                         </div>
 
