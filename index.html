@@ -122,11 +122,11 @@
                         <div :class="messaggio.status === 'sent' ? 'messaggio-utente' : 'risposta' ">
                             <span class="messaggio" :class="messaggio.status === 'sent' ? 'inviato' : 'ricevuto' ">
                                 {{messaggio.message}}
-                                <i class="fa-solid fa-chevron-down hidden" @click="changeMenuIndex(index)"></i>
+                                <i class="fa-solid fa-chevron-down hidden" @click="showMenu(index)"></i>
                                 <span class="dettagli">{{messaggio.date}}</span>
                                 
                                 <!-- opzione per eliminare il messaggio -->
-                                <div class="delate" v-show="menuIndex === index">
+                                <div class="delate" v-show="menuIndex === index" :class="hiddenMenu === true ? 'hidden' : '' ">
                                     <ul>
                                         <li>Info messaggio</li>
                                         <li @click="delateMessage(index)">Cancella messaggio</li>
@@ -141,6 +141,7 @@
                 </div>
 
                 <div class="opzioni-chat" :class="darkMode === true ? 'dark' : '' ">
+                    
                     <i class="fa-regular fa-face-smile"></i>
                     <input class="formattazione-input" type="text" v-model="newMessage" @keyup.enter="addNevMessage" :class="darkMode === true ? 'light-dark' : '' ">
                     <i class="fa-solid fa-microphone" :class="newMessage !== '' ? 'hidden' : '' "></i>

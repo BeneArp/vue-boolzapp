@@ -21,6 +21,8 @@ createApp({
 
             menuIndex: null,
 
+            hiddenMenu: true,
+
             contacts: [
                 {
                     name: 'Michele',
@@ -190,7 +192,7 @@ createApp({
 
     methods:{
         moltoUtile(){
-            console.log(this.darkMode);
+            console.log(this.hiddenMenu);
         },
 
         changeActiveChat(indice){
@@ -241,14 +243,16 @@ createApp({
             this.darkMode = !this.darkMode;
         },
 
-        changeMenuIndex(index){
+        showMenu(index){
             this.menuIndex = index;
+
+            this.hiddenMenu = !this.hiddenMenu
         },
+
 
         delateMessage(index){
             this.contacts[this.activeChat].messages.splice(index, 1);
         },
-
     },
 
     computed: {
