@@ -69,13 +69,13 @@
 
                 <!-- barra ricerca -->
                 <div id="ricerca" :class="darkMode === true ? 'dark' : '' ">
-                    <input class="formattazione-input" type="text" placeholder="&#xF002;    Cerca o inizia una nuova chat" style="font-family:Arial, FontAwesome" v-model="serchChat" @keyup.enter="filteredContacts" :class="darkMode === true ? 'light-dark' : '' ">
+                    <input class="formattazione-input" type="text" placeholder="&#xF002;    Cerca o inizia una nuova chat" style="font-family:Arial, FontAwesome" v-model="serchChat" @keyup.enter="searchContact()" :class="darkMode === true ? 'light-dark' : '' ">
                 </div>
 
                 <!-- lista contatti -->
                 <ul>
 
-                    <li class="utente" v-for="(person, index) in filteredContacts" :key="index" @click="changeActiveChat(index)" :class="activeChat === index ? 'active' : '', darkMode === true ? 'dark' : '', darkMode === true && activeChat === index ? 'active-dark' : '' ">
+                    <li class="utente" v-for="(person, index) in contacts" :key="index" @click="changeActiveChat(index)" :class="activeChat === index ? 'active' : '', darkMode === true ? 'dark' : '', darkMode === true && activeChat === index ? 'active-dark' : '' " v-show="person.visible">
                         <!-- foto profilo -->
 
                         <img class="profile-pic" :src="person.avatar" alt="">

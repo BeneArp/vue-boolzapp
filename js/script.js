@@ -200,7 +200,6 @@ createApp({
         // },
 
         changeActiveChat(indice){
-            console.log("click");
             this.activeChat = indice;
         },
 
@@ -255,6 +254,19 @@ createApp({
             }
         },
 
+        searchContact(){
+
+            this.contacts.forEach(person => {
+                if(person.name.toLowerCase().includes(this.serchChat.toLowerCase())){
+                    person.visible = true;
+                }else{
+                    person.visible = false;
+                };
+            });
+            
+        },
+        
+
         setDarkMode(){
             this.darkMode = !this.darkMode;
         },
@@ -272,13 +284,13 @@ createApp({
 
     },
 
-    computed: {
-        filteredContacts() {
-          return this.contacts.filter(contact => 
-            contact.name.toLowerCase().includes(this.serchChat.toLowerCase())
-          );
-        }
-      },
+    // computed: {
+    //     filteredContacts() {
+    //       return this.contacts.filter(contact => 
+    //         contact.name.toLowerCase().includes(this.serchChat.toLowerCase())
+    //       );
+    //     }
+    //   },
 
 
 }).mount("#container")
