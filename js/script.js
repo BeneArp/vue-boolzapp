@@ -195,9 +195,9 @@ createApp({
     },
 
     methods:{
-        // moltoUtile(){
-
-        // },
+        moltoUtile(){
+            console.log(this.contacts[0].messages);
+        },
 
         // cambio l'indice della chat attiva
         changeActiveChat(indice){
@@ -255,10 +255,10 @@ createApp({
                             status: 'received'
                         },
                     );
-                  }, 1000);
+                    }, 1000);
     
-            }
-        },
+                }
+            },
 
         // ricerca chat per nome contatto
         searchContact(){

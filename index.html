@@ -78,7 +78,7 @@
                     <li class="utente" v-for="(person, index) in contacts" :key="index" @click="changeActiveChat(index)" :class="activeChat === index ? 'active' : '', darkMode === true ? 'dark' : '', darkMode === true && activeChat === index ? 'active-dark' : '' " v-show="person.visible">
                         <!-- foto profilo -->
 
-                        <img class="profile-pic" :src="person.avatar" alt="">
+                        <img class="profile-pic" :src="person.avatar" alt="profile pic">
                         
                         <!-- nome e ultimo messaggio -->
                         <div class="nome-utente">
@@ -107,7 +107,7 @@
 
                         <div class="dettagli-chat-attiva">
                             <h3>{{contacts[activeChat].name}}</h3>
-                            <span class="ultimo-accesso"> Ultimo accesso {{contacts[activeChat].messages[contacts[activeChat].messages.length - 1].date}}</span>
+                            <span class="ultimo-accesso"> Ultimo accesso: {{contacts[activeChat].messages[contacts[activeChat].messages.length - 1].date}}</span>
                         </div>
                         
                     </div>
@@ -122,32 +122,38 @@
                 </div>
 
                 <!-- conversazione -->
-                <div id="finestra-conversazione" :class="darkMode === true ? 'light-dark' : '' ">
+                <div id="finestra-conversazione" :class="darkMode === true ? 'light-dark' : '' " >
 
-                    <div class="coversazione" v-for="(messaggio, index) in contacts[activeChat].messages" :key="index">
+                    <div v-if="contacts[activeChat].messages.length >= 1">
 
-                        <!-- messaggio -->
-                        <div :class="messaggio.status === 'sent' ? 'messaggio-utente' : 'risposta' ">
-                            <span class="messaggio" :class="messaggio.status === 'sent' ? 'inviato' : 'ricevuto' ">
-                                <!-- testo messaggio -->
-                                {{messaggio.message}}
-                                <!-- icona per aprire il menu -->
-                                <i class="fa-solid fa-chevron-down hidden" @click.stop="showMenu(index)"></i>
-                                <!-- orario -->
-                                <span class="dettagli">{{messaggio.date}}</span>
-                                
-                                <!-- menu opzioni messaggio -->
-                                <div class="delate" v-show="menuIndex === index" :class="hiddenMenu === true ? 'hidden' : '' ">
-                                    <ul>
-                                        <li>Info messaggio</li>
-                                        <li @click.stop="delateMessage(index)">Cancella messaggio</li>
-                                    </ul>
-                                </div>
+                        <div class="coversazione" v-for="(messaggio, index) in contacts[activeChat].messages" :key="index">
 
-                            </span>
+                            <!-- messaggio -->
+                            <div :class="messaggio.status === 'sent' ? 'messaggio-utente' : 'risposta' ">
+                                <span class="messaggio" :class="messaggio.status === 'sent' ? 'inviato' : 'ricevuto' ">
+                                    <!-- testo messaggio -->
+                                    {{messaggio.message}}
+                                    <!-- icona per aprire il menu -->
+                                    <i class="fa-solid fa-chevron-down hidden" @click.stop="showMenu(index)"></i>
+                                    <!-- orario -->
+                                    <span class="dettagli">{{messaggio.date}}</span>
+                                    
+                                    <!-- menu opzioni messaggio -->
+                                    <div class="delate" v-show="menuIndex === index" :class="hiddenMenu === true ? 'hidden' : '' ">
+                                        <ul>
+                                            <li>Info messaggio</li>
+                                            <li @click.stop="delateMessage(index)">Cancella messaggio</li>
+                                        </ul>
+                                    </div>
+    
+                                </span>
+                            </div>
+    
                         </div>
 
                     </div>
+
+                    
 
                 </div>
 
