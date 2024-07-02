@@ -105,7 +105,11 @@
                     <div>
                         <img class="profile-pic" :src="contacts[activeChat].avatar" alt="">
 
-                        <h3>{{contacts[activeChat].name}}</h3>
+                        <div class="dettagli-chat-attiva">
+                            <h3>{{contacts[activeChat].name}}</h3>
+                            <span class="ultimo-accesso"> Ultimo accesso {{contacts[activeChat].messages[contacts[activeChat].messages.length - 1].date}}</span>
+                        </div>
+                        
                     </div>
 
                     <!-- icone -->

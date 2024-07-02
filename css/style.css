@@ -161,6 +161,15 @@ input{
     background-color: rgb(229 221 213);
 }
 
+.dettagli-chat-attiva{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.5em;
+}
+
+.ultimo-accesso{
+    display: block;
+}
 
 .coversazione{
     padding: 0.5em 4em;
