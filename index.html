@@ -122,13 +122,17 @@
 
                     <div class="coversazione" v-for="(messaggio, index) in contacts[activeChat].messages" :key="index">
 
+                        <!-- messaggio -->
                         <div :class="messaggio.status === 'sent' ? 'messaggio-utente' : 'risposta' ">
                             <span class="messaggio" :class="messaggio.status === 'sent' ? 'inviato' : 'ricevuto' ">
+                                <!-- testo messaggio -->
                                 {{messaggio.message}}
+                                <!-- icona per aprire il menu -->
                                 <i class="fa-solid fa-chevron-down hidden" @click.stop="showMenu(index)"></i>
+                                <!-- orario -->
                                 <span class="dettagli">{{messaggio.date}}</span>
                                 
-                                <!-- opzione per eliminare il messaggio -->
+                                <!-- menu opzioni messaggio -->
                                 <div class="delate" v-show="menuIndex === index" :class="hiddenMenu === true ? 'hidden' : '' ">
                                     <ul>
                                         <li>Info messaggio</li>
@@ -143,11 +147,13 @@
 
                 </div>
 
+                <!-- barra per scrivere nuovo messaggio -->
                 <div class="opzioni-chat" :class="darkMode === true ? 'dark' : '' ">
                     
                     <i class="fa-regular fa-face-smile"></i>
                     <input class="formattazione-input" type="text" v-model="newMessage" @keyup.enter="addNevMessage" :class="darkMode === true ? 'light-dark' : '' ">
                     <i class="fa-solid fa-microphone" :class="newMessage !== '' ? 'hidden' : '' "></i>
+                    <!-- icona da cliccare per invio, appare solo se è stato scritto almeno un carattere -->
                     <i class="fa-solid fa-paper-plane" :class="newMessage === '' ? 'hidden' : '' " @click="addNevMessage"></i>
                 </div>
 

@@ -199,6 +199,7 @@ createApp({
 
         // },
 
+        // cambio l'indice della chat attiva
         changeActiveChat(indice){
             this.activeChat = indice;
         },
@@ -212,6 +213,7 @@ createApp({
             // verifico che nel campo ci sia almeno un carattere
             if(this.newMessageNoSpace.length >= 1){
 
+                // pusho nell'array messages il nuovo messaggio
                 this.contacts[this.activeChat].messages.push(
                     {
                         date: DateTime.now().toFormat('HH:mm'),
@@ -221,9 +223,11 @@ createApp({
                     
                 );
 
+                // svuoto il campo per inserire nuovi messaggi
                 this.newMessage = '';
 
                 // API per risposta random
+                // genero una frase random con un massimo di 60 caratteri
                 let config = {
                     method: 'get',
                     maxBodyLength: Infinity,
@@ -233,6 +237,7 @@ createApp({
                   
                   axios.request(config)
                   .then((response) => {
+                    // assegno alla risposta la frase generata randomicamnete
                     return this.responseMessage =(JSON.stringify(response.data.content));
                   })
                   .catch((error) => {
@@ -242,6 +247,7 @@ createApp({
 
                 // time out 1 secondo per risposta
                 setTimeout(() => {
+                    // pusho nell'array messages la risposta
                     this.contacts[this.activeChat].messages.push(
                         {
                             date: DateTime.now().toFormat('HH:mm'),
@@ -254,12 +260,17 @@ createApp({
             }
         },
 
+        // ricerca chat per nome contatto
         searchContact(){
 
+            // ciclo su contacts per controllare ogni nome
             this.contacts.forEach(person => {
+                // se include quanto scritto nel campo serchChat
                 if(person.name.toLowerCase().includes(this.serchChat.toLowerCase())){
+                    // viene mostrato
                     person.visible = true;
                 }else{
+                    // altrimenti non viene mostrato
                     person.visible = false;
                 };
             });
@@ -267,17 +278,21 @@ createApp({
         },
         
 
+        // al click la voce darkMode cambia da false a true e viceversa
         setDarkMode(){
             this.darkMode = !this.darkMode;
         },
 
+        // apertura menu contestuale messaggi
         showMenu(index){
+            // cambio l'indice per aprire solo il menu corrispondente
             this.menuIndex = index;
 
+            // al click la voce hiddenMenu cambia da true a false e viceversa
             this.hiddenMenu = !this.hiddenMenu
         },
 
-
+        // elimino dell'array messages il message con l'indice corrispondente
         delateMessage(index){
             this.contacts[this.activeChat].messages.splice(index, 1);
         },
